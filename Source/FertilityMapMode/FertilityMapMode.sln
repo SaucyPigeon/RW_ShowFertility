@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FertilityMapMode", "FertilityMapMode\FertilityMapMode.csproj", "{A8693B3F-D2D9-4DC2-832E-DA9F9C682BD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FertilityMapMode-RW1.0", "FertilityMapMode-RW1.0\FertilityMapMode-RW1.0.csproj", "{72CC1634-8041-47E1-AE63-BE97969E20DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A8693B3F-D2D9-4DC2-832E-DA9F9C682BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8693B3F-D2D9-4DC2-832E-DA9F9C682BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8693B3F-D2D9-4DC2-832E-DA9F9C682BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8693B3F-D2D9-4DC2-832E-DA9F9C682BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CC1634-8041-47E1-AE63-BE97969E20DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CC1634-8041-47E1-AE63-BE97969E20DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CC1634-8041-47E1-AE63-BE97969E20DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CC1634-8041-47E1-AE63-BE97969E20DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

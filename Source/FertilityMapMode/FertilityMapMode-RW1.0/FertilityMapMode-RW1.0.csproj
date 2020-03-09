@@ -39,7 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FertilityDrawer.cs" />
+    <Compile Include="FertilityLoader.cs" />
+    <Compile Include="FertilityUtility.cs" />
+    <Compile Include="MapInterfacePatch.cs" />
+    <Compile Include="PlaySettingsPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref">
+      <Version>1.0.2551</Version>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony">
+      <Version>1.2.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
