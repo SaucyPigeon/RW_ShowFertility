@@ -44,10 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FertilityDrawer.cs" />
+    <Compile Include="FertilityGridPatch.cs" />
     <Compile Include="FertilityLoader.cs" />
     <Compile Include="FertilityUtility.cs" />
     <Compile Include="MapInterfacePatch.cs" />
-    <Compile Include="PlaySettingsPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

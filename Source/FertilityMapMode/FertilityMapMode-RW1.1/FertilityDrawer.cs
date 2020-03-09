@@ -50,12 +50,12 @@ namespace FertilityMapMode
 
 		private static bool ShouldShow()
 		{
-			return PlaySettingsPatch.showFertilityOverlay && !Mouse.IsInputBlockedNow && UI.MouseCell().InBounds(Find.CurrentMap) && !UI.MouseCell().Fogged(Find.CurrentMap);
+			return Find.PlaySettings.showFertilityOverlay && !Mouse.IsInputBlockedNow && UI.MouseCell().InBounds(Find.CurrentMap) && !UI.MouseCell().Fogged(Find.CurrentMap);
 		}
 
 		private static void DrawFertilityAroundMouse()
 		{
-			if (!PlaySettingsPatch.showFertilityOverlay)
+			if (!Find.PlaySettings.showFertilityOverlay)
 			{
 				return;
 			}
@@ -79,6 +79,5 @@ namespace FertilityMapMode
 			var color = ColorGradient.Evaluate(num);
 			return color;
 		}
-
 	}
 }
