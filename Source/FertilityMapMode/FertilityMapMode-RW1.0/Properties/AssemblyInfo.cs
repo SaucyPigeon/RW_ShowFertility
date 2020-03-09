@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FertilityMapMode")]
+[assembly: AssemblyTitle("FertilityMapMode-RW1.0")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("FertilityMapMode")]
+[assembly: AssemblyProduct("FertilityMapMode-RW1.0")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a8693b3f-d2d9-4dc2-832e-da9f9c682bd8")]
+[assembly: Guid("72cc1634-8041-47e1-ae63-be97969e20db")]
 
 // Version information for an assembly consists of the following four values:
 //
