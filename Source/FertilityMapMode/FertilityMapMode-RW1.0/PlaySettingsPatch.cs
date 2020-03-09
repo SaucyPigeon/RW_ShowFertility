@@ -10,7 +10,7 @@ namespace FertilityMapMode
 {
 	[HarmonyPatch(typeof(PlaySettings))]
 	[HarmonyPatch("DoPlaySettingsGlobalControls")]
-	internal class PlaySettingsPatch
+	public class PlaySettingsPatch
 	{
 		public static bool showFertilityOverlay;
 

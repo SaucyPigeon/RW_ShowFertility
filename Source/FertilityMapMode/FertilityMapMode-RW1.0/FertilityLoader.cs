@@ -7,7 +7,7 @@ using Verse;
 namespace FertilityMapMode
 {
 	[StaticConstructorOnStartup]
-	internal class FertilityLoader
+	public static class FertilityLoader
 	{
 		public static readonly Texture2D fertilityTexture;
 
