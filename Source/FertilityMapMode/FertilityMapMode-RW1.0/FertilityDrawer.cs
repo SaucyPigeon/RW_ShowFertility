@@ -75,7 +75,6 @@ namespace FertilityMapMode
 
 		public static Color FertilityColor(float fertility, float scale)
 		{
-			
 			float num = Mathf.InverseLerp(-scale, scale, fertility);
 			var color = ColorGradient.Evaluate(num);
 			return color;
