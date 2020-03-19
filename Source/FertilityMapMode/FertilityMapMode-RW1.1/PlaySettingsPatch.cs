@@ -21,6 +21,7 @@ namespace FertilityMapMode
 			const string textureFieldName = "Verse.TexButton";
 
 			// Naughty stuff
+			// Let's replace this with something cleverer
 			try
 			{
 				var assembly = typeof(Verse.AbilityCompProperties).Assembly;
@@ -39,6 +40,10 @@ namespace FertilityMapMode
 			}
 		}
 
+		/*
+		Replace vanilla texture with mod texture.
+		Need to test overwriting vanilla textures without code.
+		*/
 		[HarmonyTranspiler]
 		private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{

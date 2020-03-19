@@ -13,6 +13,12 @@ namespace FertilityMapMode
 	[HarmonyPatch(typeof(MapInterface))]
 	public class MapInterfacePatch
 	{
+		/*
+		Add fertility drawer call right after beauty drawer call. Helps with
+		proper UI ordering of fertility display numbers, so they don't overlap
+		with map interface.
+		*/
+		// Can be factored out with an "add call after x" generic transpiler.
 		[HarmonyPatch("MapInterfaceOnGUI_BeforeMainTabs")]
 		[HarmonyTranspiler]
 		public static IEnumerable<CodeInstruction> MapInterfaceOnGUI_BeforeMainTabs_Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -31,7 +37,12 @@ namespace FertilityMapMode
 			}
 		}
 
-		[HarmonyPatch("MapInterfaceUpdate")]
+		/*
+		(Can be rewritten to be easier to understand)
+		Prevents fertility grid update method from being called. Not essential,
+		but could potentially improve performance and unexpected errors.
+		*/
+		/*[HarmonyPatch("MapInterfaceUpdate")]
 		[HarmonyTranspiler]
 		public static IEnumerable<CodeInstruction> MapInterfaceUpdate_Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
@@ -60,6 +71,6 @@ namespace FertilityMapMode
 				}
 				yield return instruction;
 			}
-		}
+		}*/
 	}
 }
