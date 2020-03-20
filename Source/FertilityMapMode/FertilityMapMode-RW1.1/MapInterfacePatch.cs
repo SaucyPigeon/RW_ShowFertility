@@ -18,7 +18,6 @@ namespace FertilityMapMode
 		proper UI ordering of fertility display numbers, so they don't overlap
 		with map interface.
 		*/
-		// Can be factored out with an "add call after x" generic transpiler.
 		[HarmonyPatch("MapInterfaceOnGUI_BeforeMainTabs")]
 		[HarmonyTranspiler]
 		public static IEnumerable<CodeInstruction> MapInterfaceOnGUI_BeforeMainTabs_Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -26,15 +25,7 @@ namespace FertilityMapMode
 			var beautyDrawerOnGUIMethod = AccessTools.Method(typeof(BeautyDrawer), nameof(BeautyDrawer.BeautyDrawerOnGUI));
 			var fertilityDrawerOnGUIMethod = AccessTools.Method(typeof(FertilityDrawer), nameof(FertilityDrawer.FertilityDrawerOnGUI));
 
-			foreach (var instruction in instructions)
-			{
-				yield return instruction;
-
-				if (instruction.Calls(beautyDrawerOnGUIMethod))
-				{
-					yield return new CodeInstruction(opcode: OpCodes.Call, operand: fertilityDrawerOnGUIMethod);
-				}
-			}
+			return instructions.AddCallAfter(first: beautyDrawerOnGUIMethod, second: fertilityDrawerOnGUIMethod);
 		}
 
 		/*
