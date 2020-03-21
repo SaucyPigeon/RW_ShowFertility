@@ -36,5 +36,30 @@ namespace FertilityMapMode
 				}
 			}
 		}
+
+		public static IEnumerable<CodeInstruction> ReplaceFieldLoad(this IEnumerable<CodeInstruction> instructions, FieldInfo target, FieldInfo value)
+		{
+			if (instructions == null)
+			{
+				throw new ArgumentNullException(nameof(instructions));
+			}
+			if (target == null)
+			{
+				throw new ArgumentNullException(nameof(target));
+			}
+			if (value == null)
+			{
+				throw new ArgumentNullException(nameof(value));
+			}
+
+			foreach (var instruction in instructions)
+			{
+				if (instruction.LoadsField(target))
+				{
+					instruction.operand = value;
+				}
+				yield return instruction;
+			}
+		}
 	}
 }

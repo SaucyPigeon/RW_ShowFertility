@@ -33,7 +33,7 @@ namespace FertilityMapMode
 		Prevents fertility grid update method from being called. Not essential,
 		but could potentially improve performance and unexpected errors.
 		*/
-		/*[HarmonyPatch("MapInterfaceUpdate")]
+		[HarmonyPatch("MapInterfaceUpdate")]
 		[HarmonyTranspiler]
 		public static IEnumerable<CodeInstruction> MapInterfaceUpdate_Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
@@ -62,6 +62,6 @@ namespace FertilityMapMode
 				}
 				yield return instruction;
 			}
-		}*/
+		}
 	}
 }

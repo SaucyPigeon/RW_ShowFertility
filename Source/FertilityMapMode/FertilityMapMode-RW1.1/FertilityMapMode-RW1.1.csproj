@@ -49,6 +49,7 @@
     <Compile Include="MapInterfacePatch.cs" />
     <Compile Include="PlaySettingsPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transpilers.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">

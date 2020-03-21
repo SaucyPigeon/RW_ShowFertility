@@ -16,33 +16,56 @@ namespace FertilityMapMode
 	[HarmonyPatch(nameof(PlaySettings.DoPlaySettingsGlobalControls))]
 	public static class PlaySettingsPatch
 	{
+		private static FieldInfo GetField(ModContentPack pack, string typeName, string fieldName)
+		{
+			if (pack == null)
+			{
+				throw new ArgumentNullException(nameof(pack));
+			}
+			if (typeName == null)
+			{
+				throw new ArgumentNullException(nameof(typeName));
+			}
+			if (fieldName == null)
+			{
+				throw new ArgumentNullException(nameof(fieldName));
+			}
+
+			foreach (var assembly in pack.assemblies.loadedAssemblies)
+			{
+				var type = assembly.GetType(typeName);
+				if (type != null)
+				{
+					return AccessTools.Field(type, fieldName);
+				}
+			}
+			return null;
+		}
+
 		private static FieldInfo GetShowFertilityOverlayTextureField()
 		{
-			const string textureFieldName = "Verse.TexButton";
+			var pack = LoadedModManager.RunningMods.FirstOrDefault(x => x.IsCoreMod);
 
-			// Naughty stuff
-			// Let's replace this with something cleverer
-			try
+			if (pack == null)
 			{
-				var assembly = typeof(Verse.AbilityCompProperties).Assembly;
-				var type = assembly.GetType(textureFieldName, throwOnError: true);
-				var showFertilityOverlayField = AccessTools.Field(type, "ShowFertilityOverlay");
-				return showFertilityOverlayField;
+				throw new InvalidOperationException($"Could not find Core in LoadedModManager.RunningMods. Ensure that Core is enabled.");
 			}
-			catch (TypeLoadException)
+
+			const string typeName = "Verse.TexButton";
+			const string fieldName = "ShowFertilityOverlay";
+
+			var field = GetField(pack, typeName, fieldName);
+
+			if (field == null)
 			{
-				Log.Error($"ShowFertility failed to find {textureFieldName} in game assembly. Ensure that the class is spelt correctly and that the class has not been moved or renamed.");
-				throw;
+				Log.Error($"ShowFertility was unable to find {typeName}::{fieldName} in Core. Please contact the mod author if you see this.");
+				throw new MissingFieldException(typeName, fieldName);
 			}
-			catch
-			{
-				throw;
-			}
+			return field;
 		}
 
 		/*
 		Replace vanilla texture with mod texture.
-		Need to test overwriting vanilla textures without code.
 		*/
 		[HarmonyTranspiler]
 		private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -50,14 +73,7 @@ namespace FertilityMapMode
 			var customTextureField = AccessTools.Field(typeof(FertilityLoader), nameof(FertilityLoader.fertilityTexture));
 			var showFertilityOverlayField = GetShowFertilityOverlayTextureField();
 
-			foreach (var instruction in instructions)
-			{
-				if (instruction.LoadsField(showFertilityOverlayField))
-				{
-					instruction.operand = customTextureField;
-				}
-				yield return instruction;
-			}
+			return instructions.ReplaceFieldLoad(target: showFertilityOverlayField, value: customTextureField);
 		}
 	}
 }
