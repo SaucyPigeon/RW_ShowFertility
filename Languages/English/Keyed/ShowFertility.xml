@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
+	<!-- 1.0, 1.1 -->
+
 	<ShowFertilityToggleButton>Show fertility</ShowFertilityToggleButton>
+	
+	<!-- 1.1 -->
+	
+	<ShowFertility.ModName>Show Fertility</ShowFertility.ModName>
+	<ShowFertility.OverrideVanillaTexture>Use modded texture</ShowFertility.OverrideVanillaTexture>
+	<ShowFertility.OverrideVanillaTextureTip>Toggle the usage of Show Fertility's custom button texture. Disable to keep the vanilla button texture. (Requires restart to take effect)</ShowFertility.OverrideVanillaTextureTip>
 
 </LanguageData>

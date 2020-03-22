@@ -1,22 +1,22 @@
-﻿using HarmonyLib;
-using RimWorld;
-using System.Reflection;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Verse;
+using RimWorld;
+using UnityEngine;
 
 namespace FertilityMapMode
 {
 	[StaticConstructorOnStartup]
 	public static class FertilityLoader
 	{
-		private const string Id = "uk.saucypigeon.rimworld.mod.showfertility";
-		public static readonly Texture2D fertilityTexture;
+		public static Texture2D FertilityButtonTexture;
 
 		static FertilityLoader()
 		{
-			fertilityTexture = ContentFinder<Texture2D>.Get("Fertility", true);
-			var harmony = new Harmony(Id);
-			harmony.PatchAll(Assembly.GetExecutingAssembly());
+			FertilityButtonTexture = ContentFinder<Texture2D>.Get("Fertility", true);
 		}
 	}
 }

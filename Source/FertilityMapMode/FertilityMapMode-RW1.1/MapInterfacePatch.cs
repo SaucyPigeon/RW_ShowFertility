@@ -25,7 +25,7 @@ namespace FertilityMapMode
 			var beautyDrawerOnGUIMethod = AccessTools.Method(typeof(BeautyDrawer), nameof(BeautyDrawer.BeautyDrawerOnGUI));
 			var fertilityDrawerOnGUIMethod = AccessTools.Method(typeof(FertilityDrawer), nameof(FertilityDrawer.FertilityDrawerOnGUI));
 
-			return instructions.AddCallAfter(first: beautyDrawerOnGUIMethod, second: fertilityDrawerOnGUIMethod);
+			return instructions.AddCallAfter(target: beautyDrawerOnGUIMethod, value: fertilityDrawerOnGUIMethod);
 		}
 
 		/*
