@@ -60,13 +60,12 @@ namespace FertilityMapMode
 				return;
 			}
 			FertilityUtility.FillFertilityRelevantCells(UI.MouseCell(), Find.CurrentMap);
-			for (int i = 0; i < FertilityUtility.fertilityRelevantCells.Count; i++)
+			foreach (var cell in FertilityUtility.fertilityRelevantCells)
 			{
-				IntVec3 intVec = FertilityUtility.fertilityRelevantCells[i];
-				float num = FertilityUtility.CellFertility(intVec, Find.CurrentMap, FertilityDrawer.fertilityCountedThings);
+				float num = FertilityUtility.CellFertility(cell, Find.CurrentMap, FertilityDrawer.fertilityCountedThings);
 				if (num != 0f)
 				{
-					Vector3 v = GenMapUI.LabelDrawPosFor(intVec);
+					Vector3 v = GenMapUI.LabelDrawPosFor(cell);
 					GenMapUI.DrawThingLabel(v, num.ToString("n1"), FertilityDrawer.FertilityColor(num, 1.4f));
 				}
 			}

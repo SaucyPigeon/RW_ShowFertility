@@ -56,7 +56,6 @@ namespace FertilityMapMode
 
 			var harmony = new Harmony(Id);
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
-
 		}
 	}
 }
