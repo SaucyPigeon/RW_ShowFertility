@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-	<!-- 1.0, 1.1 -->
+	<!-- 1.0 -->
 
-	<ShowFertilityToggleButton>Show fertility</ShowFertilityToggleButton>
+	<ShowFertility.ShowFertilityDisplay>Toggle the fertility display.</ShowFertility.ShowFertilityDisplay>
+	
 	
 	<!-- 1.1 -->
 	

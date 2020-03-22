@@ -18,7 +18,7 @@ namespace FertilityMapMode
 		{
 			if (!worldView)
 			{
-				row.ToggleableIcon(ref showFertilityOverlay, FertilityLoader.fertilityTexture, "ShowFertilityToggleButton".Translate(), SoundDefOf.Mouseover_ButtonToggle, null);
+				row.ToggleableIcon(ref showFertilityOverlay, FertilityLoader.fertilityTexture, "ShowFertility.ShowFertilityDisplay".Translate(), SoundDefOf.Mouseover_ButtonToggle, null);
 			}
 		}
 	}
