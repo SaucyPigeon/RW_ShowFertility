@@ -23,12 +23,8 @@ namespace FertilityMapMode
 			{
 				{ 0.0f, Color.grey },
 
-				{ 0.1f, Color.grey },
-
-				{ 0.2f, Color.red },
-
-				// orange
-				{ 0.7f, new Color(1.0f, 0.5f, 0.0f) },
+				// orange/brown
+				{ 0.7f, new Color(0.6f, 0.5f, 0.0f) },
 
 				// bland green
 				{ 1.0f, new Color(0.1f, 0.6f, 0.1f) },
