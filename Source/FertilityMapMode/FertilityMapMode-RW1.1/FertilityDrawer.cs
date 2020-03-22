@@ -5,6 +5,7 @@ using System.Text;
 using Verse;
 using RimWorld;
 using UnityEngine;
+using FertilityMapMode.Coloring;
 
 namespace FertilityMapMode
 {
@@ -12,38 +13,40 @@ namespace FertilityMapMode
 	{
 		private static List<Thing> fertilityCountedThings = new List<Thing>();
 
-		private static Gradient ColorGradient = GetColorGradient();
+		private static Coloring.Gradient ColorGradient = GetColorGradient();
 
-		private static Gradient GetColorGradient()
+		private static Coloring.Gradient GetColorGradient()
 		{
-			var gradient = new Gradient();
+			var gradient = new Coloring.Gradient();
 
-			var colorKeys = new GradientColorKey[]
+			var colorKeys = new SortedDictionary<float, Color>
 			{
-				// Grey, rgba(127, 127, 127, 1) 0%
-				new GradientColorKey(Color.grey, 0.0f),
+				{ 0.0f, Color.grey },
 
-				// Red, rgba(255, 0, 0, 1) 20%
-				new GradientColorKey(Color.red, 0.2f),
+				{ 0.1f, Color.grey },
 
-				// Orange, rgba(255, 127, 0, 1) 70%
-				new GradientColorKey(new Color(1, 0.5f, 0), 0.7f),
+				{ 0.2f, Color.red },
 
-				// Bland green, rgba(25, 153, 25, 1) 85%
-				new GradientColorKey(new Color(0.1f, 0.6f, 0.1f), 0.85f),
+				// orange
+				{ 0.7f, new Color(1.0f, 0.5f, 0.0f) },
 
-				// Pure green, rgba(0, 255, 0, 1) 100%
-				new GradientColorKey(Color.green, 1.0f)
+				// bland green
+				{ 1.0f, new Color(0.1f, 0.6f, 0.1f) },
+
+				{ 1.4f, Color.green },
+
+				// For modded fertility levels (highest vanilla=1.4)
+				{ 2.5f, Color.cyan }
 			};
 
-			var alphaKeys = new GradientAlphaKey[]
+			var alphaKeys = new SortedDictionary<float, float>
 			{
-				new GradientAlphaKey(1, 0),
-				new GradientAlphaKey(1, 1)
+				{ 0.0f, 1.0f },
+
+				{ 1.0f, 1.0f }
 			};
 
-			gradient.mode = GradientMode.Blend;
-			gradient.SetKeys(colorKeys, alphaKeys);
+			gradient.AddKeys(colorKeys, alphaKeys);
 
 			return gradient;
 		}
@@ -83,8 +86,10 @@ namespace FertilityMapMode
 
 		public static Color FertilityColor(float fertility, float scale)
 		{
-			float num = Mathf.InverseLerp(-scale, scale, fertility);
-			var color = ColorGradient.Evaluate(num);
+			Log.Warning($"Fertility: {fertility}");
+
+			//float num = Mathf.InverseLerp(-scale, scale, fertility);
+			var color = ColorGradient.Evaluate(fertility);
 			return color;
 		}
 	}
