@@ -15,6 +15,12 @@ namespace FertilityMapMode
 
 		public float FertilitySampleRadius = 7.9f;
 
+		// Uselessly small
+		private const float SampleRadiusMinimum = 1.0f;
+
+		// Laggingly big
+		private const float SampleRadiusMaximum = 100.0f;
+
 		public void DoWindowContents(Rect canvas)
 		{
 			var list = new Listing_Standard();
@@ -26,9 +32,12 @@ namespace FertilityMapMode
 			list.CheckboxLabeled(label.Translate(), ref OverrideVanillaTexture, (label + "Tip").Translate());
 
 			list.Gap(24);
+			// TextFieldNumeric is very dodgy to use with mins and maxes (e.g.
+			// nearly impossible to enter specific numbers due to autofill).
+			// Also lacks tooltips.
 			label = "ShowFertility.FertilitySampleRadius";
 			string buffer = FertilitySampleRadius.ToString();
-			list.TextFieldNumericLabeled(label.Translate(), ref FertilitySampleRadius, ref buffer, min: 5, max: 20);
+			list.TextFieldNumericLabeled(label.Translate(), ref FertilitySampleRadius, ref buffer, SampleRadiusMinimum, SampleRadiusMaximum);
 
 			list.End();
 		}

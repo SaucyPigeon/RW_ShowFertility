@@ -14,8 +14,14 @@ namespace FertilityMapMode
 
 		private static List<Room> visibleRooms = new List<Room>();
 
-		private static readonly int SampleNumCells_Fertility;
-
+		public static int SampleNumCells_Fertility
+		{
+			get
+			{
+				return GenRadial.NumCellsInRadius(FertilityMod.Settings.FertilitySampleRadius); 
+			}
+		}
+		
 		private static List<Thing> tempCountedThings = new List<Thing>();
 
 		public static float AverageFertilityPerceptible(IntVec3 root, Map map)
@@ -136,11 +142,6 @@ namespace FertilityMapMode
 		public static bool FertilityRelevant(ThingCategory cat)
 		{
 			return cat == ThingCategory.None;
-		}
-
-		static FertilityUtility()
-		{
-			SampleNumCells_Fertility = GenRadial.NumCellsInRadius(FertilityMod.Settings.FertilitySampleRadius);
 		}
 	}
 }
