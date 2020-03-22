@@ -7,13 +7,14 @@ using Verse;
 
 namespace FertilityMapMode
 {
+	[StaticConstructorOnStartup]
 	public static class FertilityUtility
 	{
 		public static List<IntVec3> fertilityRelevantCells = new List<IntVec3>();
 
 		private static List<Room> visibleRooms = new List<Room>();
 
-		public static readonly int SampleNumCells_Fertility = GenRadial.NumCellsInRadius(7.9f);
+		private static readonly int SampleNumCells_Fertility;
 
 		private static List<Thing> tempCountedThings = new List<Thing>();
 
@@ -135,6 +136,11 @@ namespace FertilityMapMode
 		public static bool FertilityRelevant(ThingCategory cat)
 		{
 			return cat == ThingCategory.None;
+		}
+
+		static FertilityUtility()
+		{
+			SampleNumCells_Fertility = GenRadial.NumCellsInRadius(FertilityMod.Settings.FertilitySampleRadius);
 		}
 	}
 }
