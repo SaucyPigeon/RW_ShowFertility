@@ -29,7 +29,6 @@ namespace FertilityMapMode
 		}
 
 		/*
-		(Can be rewritten to be easier to understand)
 		Prevents fertility grid update method from being called. Not essential,
 		but could potentially improve performance and unexpected errors.
 		*/

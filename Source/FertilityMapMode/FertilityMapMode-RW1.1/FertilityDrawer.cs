@@ -20,11 +20,20 @@ namespace FertilityMapMode
 
 			var colorKeys = new GradientColorKey[]
 			{
-				new GradientColorKey(Color.grey, 0.0f), // grey
-				new GradientColorKey(Color.red, 0.2f), // red
-				new GradientColorKey(new Color(1, 0.5f, 0), 0.7f), // orange
-				new GradientColorKey(new Color(0.1f, 0.6f, 0.1f), 0.85f), // bland green
-				new GradientColorKey(Color.green, 1.0f) // pure green
+				// Grey, rgba(127, 127, 127, 1) 0%
+				new GradientColorKey(Color.grey, 0.0f),
+
+				// Red, rgba(255, 0, 0, 1) 20%
+				new GradientColorKey(Color.red, 0.2f),
+
+				// Orange, rgba(255, 127, 0, 1) 70%
+				new GradientColorKey(new Color(1, 0.5f, 0), 0.7f),
+
+				// Bland green, rgba(25, 153, 25, 1) 85%
+				new GradientColorKey(new Color(0.1f, 0.6f, 0.1f), 0.85f),
+
+				// Pure green, rgba(0, 255, 0, 1) 100%
+				new GradientColorKey(Color.green, 1.0f)
 			};
 
 			var alphaKeys = new GradientAlphaKey[]

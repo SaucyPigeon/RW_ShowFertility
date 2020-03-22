@@ -47,6 +47,7 @@
     <Compile Include="FertilityLoader.cs" />
     <Compile Include="FertilityMod.cs" />
     <Compile Include="FertilityUtility.cs" />
+    <Compile Include="Debugging\Misc.cs" />
     <Compile Include="Patch_MapInterface.cs" />
     <Compile Include="Patch_PlaySettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
