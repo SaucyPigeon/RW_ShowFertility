@@ -36,8 +36,8 @@ namespace FertilityMapMode
 			// nearly impossible to enter specific numbers due to autofill).
 			// Also lacks tooltips.
 			label = "ShowFertility.FertilitySampleRadius";
-			string buffer = FertilitySampleRadius.ToString();
-			list.TextFieldNumericLabeled(label.Translate(), ref FertilitySampleRadius, ref buffer, SampleRadiusMinimum, SampleRadiusMaximum);
+			list.Label(label.Translate(), tooltip: (label + "Tip").Translate());
+			FertilitySampleRadius = list.Slider(FertilitySampleRadius, SampleRadiusMinimum, SampleRadiusMaximum);
 
 			list.End();
 		}
