@@ -14,7 +14,7 @@ namespace FertilityMapMode
 {
 	[HarmonyPatch(typeof(PlaySettings))]
 	[HarmonyPatch(nameof(PlaySettings.DoPlaySettingsGlobalControls))]
-	public static class PlaySettingsPatch
+	public static class Patch_PlaySettings
 	{
 		/*
 		Replace vanilla texture with mod texture toggle via mod settings.

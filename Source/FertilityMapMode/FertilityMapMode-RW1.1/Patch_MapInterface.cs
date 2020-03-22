@@ -11,7 +11,7 @@ using System.Reflection.Emit;
 namespace FertilityMapMode
 {
 	[HarmonyPatch(typeof(MapInterface))]
-	public class MapInterfacePatch
+	public class Patch_MapInterface
 	{
 		/*
 		Add fertility drawer call right after beauty drawer call. Helps with
