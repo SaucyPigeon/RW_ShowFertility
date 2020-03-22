@@ -37,31 +37,14 @@ namespace FertilityMapMode
 		[HarmonyTranspiler]
 		public static IEnumerable<CodeInstruction> MapInterfaceUpdate_Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
-			var fertilityGridField = AccessTools.Field(typeof(Map), nameof(Map.fertilityGrid));
 			var fertilityGridUpdateMethod = AccessTools.Method(typeof(FertilityGrid), nameof(FertilityGrid.FertilityGridUpdate));
+
+			var fertilityGridField = AccessTools.Field(typeof(Map), nameof(Map.fertilityGrid));
 			var currentMapGetter = AccessTools.PropertyGetter(typeof(Find), nameof(Find.CurrentMap));
 
-			bool skipNextGetCurrentMap = false;
-			bool alreadySkipped = false;
-
-			foreach (var instruction in instructions)
-			{
-				if (instruction.LoadsField(fertilityGridField))
-				{
-					skipNextGetCurrentMap = true;
-					continue;
-				}
-				if (instruction.Calls(fertilityGridUpdateMethod))
-				{
-					continue;
-				}
-				if (skipNextGetCurrentMap && !alreadySkipped && instruction.Calls(currentMapGetter))
-				{
-					alreadySkipped = true;
-					continue;
-				}
-				yield return instruction;
-			}
+			return instructions
+				.SkipMethod(fertilityGridUpdateMethod)
+				.SkipFieldAndMethod(fertilityGridField, currentMapGetter, count: 1);
 		}
 	}
 }
