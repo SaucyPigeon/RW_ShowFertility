@@ -9,8 +9,7 @@ using Verse;
 using System.Reflection;
 using System.Reflection.Emit;
 
-
-namespace FertilityMapMode
+namespace FertilityMapMode.Patches
 {
 	[HarmonyPatch(typeof(PlaySettings))]
 	[HarmonyPatch(nameof(PlaySettings.DoPlaySettingsGlobalControls))]

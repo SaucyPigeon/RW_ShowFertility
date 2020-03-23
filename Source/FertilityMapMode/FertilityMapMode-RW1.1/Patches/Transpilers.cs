@@ -7,7 +7,7 @@ using HarmonyLib;
 using System.Reflection.Emit;
 using System.Reflection;
 
-namespace FertilityMapMode
+namespace FertilityMapMode.Patches
 {
 	public static class Transpilers
 	{

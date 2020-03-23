@@ -51,11 +51,11 @@
     <Compile Include="Debugging\Misc.cs" />
     <Compile Include="Coloring\Gradient.cs" />
     <Compile Include="Coloring\IGradient.cs" />
-    <Compile Include="Patch_MapInterface.cs" />
-    <Compile Include="Patch_PlaySettings.cs" />
+    <Compile Include="Patches\Patch_MapInterface.cs" />
+    <Compile Include="Patches\Patch_PlaySettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="Transpilers.cs" />
+    <Compile Include="Patches\Transpilers.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">

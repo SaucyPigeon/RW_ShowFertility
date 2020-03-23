@@ -8,7 +8,7 @@ using RimWorld.Planet;
 using Verse;
 using System.Reflection.Emit;
 
-namespace FertilityMapMode
+namespace FertilityMapMode.Patches
 {
 	[HarmonyPatch(typeof(MapInterface))]
 	public class Patch_MapInterface
