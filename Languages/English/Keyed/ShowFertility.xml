@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-	<ShowFertilityToggleButton>Show fertility</ShowFertilityToggleButton>
+	<!-- 1.0 -->
 
+	<ShowFertility.ShowFertilityDisplay>Toggle the fertility display.</ShowFertility.ShowFertilityDisplay>
+	
+	
+	<!-- 1.1 -->
+	
+	<ShowFertility.ModName>Show Fertility</ShowFertility.ModName>
+	<ShowFertility.OverrideVanillaTexture>Use modded texture</ShowFertility.OverrideVanillaTexture>
+	<ShowFertility.OverrideVanillaTextureTip>Toggle the usage of Show Fertility's custom button texture. Disable to keep the vanilla button texture. (Requires restart to take effect)</ShowFertility.OverrideVanillaTextureTip>
+	<ShowFertility.FertilitySampleRadius>Fertility tool radius</ShowFertility.FertilitySampleRadius>
+	<ShowFertility.FertilitySampleRadiusTip>Adjust the radius of the fertility tool. Please note that high values can have performance issues.</ShowFertility.FertilitySampleRadiusTip>
+	<ShowFertility.ResetToDefault>Reset to default</ShowFertility.ResetToDefault>	
+	
 </LanguageData>
