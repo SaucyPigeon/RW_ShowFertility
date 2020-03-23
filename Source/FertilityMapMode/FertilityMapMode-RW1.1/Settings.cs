@@ -11,15 +11,21 @@ namespace FertilityMapMode
 {
 	public class Settings : ModSettings
 	{
-		public bool OverrideVanillaTexture = true;
+		public bool OverrideVanillaTexture = OverrideVanillaTexture_default;
 
-		public float FertilitySampleRadius = 7.9f;
+		public float FertilitySampleRadius = FertilitySampleRadius_default;
 
-		// Uselessly small
-		private const float SampleRadiusMinimum = 1.0f;
+		#region Constants
 
-		// Laggingly big
-		private const float SampleRadiusMaximum = 100.0f;
+		private const bool OverrideVanillaTexture_default = true;
+
+		private const float FertilitySampleRadius_default = 7.9f;
+
+		private const float SampleRadiusMinimum = 5.0f;
+
+		private const float SampleRadiusMaximum = 20.0f;
+
+		#endregion
 
 		public void DoWindowContents(Rect canvas)
 		{
@@ -37,16 +43,35 @@ namespace FertilityMapMode
 			// Also lacks tooltips.
 			label = "ShowFertility.FertilitySampleRadius";
 			list.Label(label.Translate(), tooltip: (label + "Tip").Translate());
+
+
+			string buffer = FertilitySampleRadius.ToString();
+			list.TextFieldNumeric(ref FertilitySampleRadius, ref buffer, SampleRadiusMinimum, SampleRadiusMaximum);
 			FertilitySampleRadius = list.Slider(FertilitySampleRadius, SampleRadiusMinimum, SampleRadiusMaximum);
 
+			label = "ShowFertility.ResetToDefault";
+
+			list.Gap(24);
+
+			if (list.ButtonText(label.Translate()))
+			{
+				ResetToDefault();
+			}
+
 			list.End();
+		}
+
+		private void ResetToDefault()
+		{
+			OverrideVanillaTexture = OverrideVanillaTexture_default;
+			FertilitySampleRadius = FertilitySampleRadius_default;
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref OverrideVanillaTexture, "overrideVanillaTexture", defaultValue: false);
-			Scribe_Values.Look(ref FertilitySampleRadius, "fertilitySampleRadius", defaultValue: 7.9f);
+			Scribe_Values.Look(ref OverrideVanillaTexture, "overrideVanillaTexture", OverrideVanillaTexture_default);
+			Scribe_Values.Look(ref FertilitySampleRadius, "fertilitySampleRadius", FertilitySampleRadius_default);
 		}
 	}
 }
