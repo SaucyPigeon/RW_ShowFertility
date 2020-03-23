@@ -67,6 +67,11 @@ namespace FertilityMapMode
 			{
 				return;
 			}
+			// Prevent overlap with beauty display
+			if (Find.PlaySettings.showBeauty)
+			{
+				return;
+			}
 			FertilityUtility.FillFertilityRelevantCells(UI.MouseCell(), Find.CurrentMap);
 			foreach (var cell in FertilityUtility.fertilityRelevantCells)
 			{
@@ -83,8 +88,7 @@ namespace FertilityMapMode
 		public static Color FertilityColor(float fertility, float scale)
 		{
 			Log.Warning($"Fertility: {fertility}");
-
-			//float num = Mathf.InverseLerp(-scale, scale, fertility);
+			
 			var color = ColorGradient.Evaluate(fertility);
 			return color;
 		}

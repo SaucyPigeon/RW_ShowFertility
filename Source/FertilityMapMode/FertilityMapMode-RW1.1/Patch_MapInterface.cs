@@ -27,7 +27,7 @@ namespace FertilityMapMode
 
 			return instructions.AddCallAfter(target: beautyDrawerOnGUIMethod, value: fertilityDrawerOnGUIMethod);
 		}
-
+		
 		/*
 		Prevents fertility grid update method from being called. Not essential,
 		but could potentially improve performance and unexpected errors.
