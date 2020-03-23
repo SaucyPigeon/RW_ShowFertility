@@ -24,29 +24,6 @@ namespace FertilityMapMode
 		
 		private static List<Thing> tempCountedThings = new List<Thing>();
 
-		public static float AverageFertilityPerceptible(IntVec3 root, Map map)
-		{
-			if (!root.IsValid || !root.InBounds(map))
-			{
-				return 0f;
-			}
-			FertilityUtility.tempCountedThings.Clear();
-			float num = 0f;
-			int num2 = 0;
-			FertilityUtility.FillFertilityRelevantCells(root, map);
-			for (int i = 0; i < FertilityUtility.fertilityRelevantCells.Count; i++)
-			{
-				num += FertilityUtility.CellFertility(FertilityUtility.fertilityRelevantCells[i], map, FertilityUtility.tempCountedThings);
-				num2++;
-			}
-			FertilityUtility.tempCountedThings.Clear();
-			if (num2 == 0)
-			{
-				return 0f;
-			}
-			return num / (float)num2;
-		}
-
 		public static void FillFertilityRelevantCells(IntVec3 root, Map map)
 		{
 			FertilityUtility.fertilityRelevantCells.Clear();
