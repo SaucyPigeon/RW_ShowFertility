@@ -86,9 +86,7 @@ namespace FertilityMapMode
 		}
 
 		public static Color FertilityColor(float fertility, float scale)
-		{
-			Log.Warning($"Fertility: {fertility}");
-			
+		{		
 			var color = ColorGradient.Evaluate(fertility);
 			return color;
 		}

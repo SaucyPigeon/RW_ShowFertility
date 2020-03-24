@@ -20,11 +20,7 @@ namespace FertilityMapMode.Collections
 			}
 
 			var keys = list.Keys.ToList();
-
 			var index = keys.BinarySearch(value);
-
-			Verse.Log.Warning($"Binary search result: {index}");
-			Verse.Log.Warning($"~index: {~index}");
 
 			before = list.ElementAt((~index) - 1);
 			after = list.ElementAt(~index);

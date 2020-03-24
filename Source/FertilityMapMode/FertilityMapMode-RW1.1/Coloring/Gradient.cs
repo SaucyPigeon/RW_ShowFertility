@@ -39,8 +39,6 @@ namespace FertilityMapMode.Coloring
 
 		private float EvaluateAlpha(float key)
 		{
-			Verse.Log.Warning($"Getting alpha value for key={key}");
-
 			if (Alphas.ContainsKey(key))
 			{
 				return Alphas[key];
