@@ -68,4 +68,8 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="PreBuild.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>call "$(SolutionDir)scripts\postbuild.bat" "$(TargetPath)" "..\..\1.2\Assemblies\"
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>
